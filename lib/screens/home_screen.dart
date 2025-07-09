@@ -61,8 +61,9 @@ class _HomeScreenState extends State<HomeScreen> {
       
       if (reminderTime.isAfter(DateTime.now())) {
         NotificationService.scheduleReminder(
-          reminderTime,
+          'Upcoming Learning Session',
           "Your learning session starts in ${settings.reminderMinutes} minutes! Get ready to focus.",
+          reminderTime,
         );
       }
     }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import '../models/progress_data.dart';
 import '../widgets/progress_chart.dart';
 
@@ -28,8 +29,8 @@ class _ProgressScreenState extends State<ProgressScreen> {
         title: const Text('Your Progress'),
         elevation: 0,
       ),
-      body: ValueListenableBuilder(
-        valueListenable: progressBox.listenable(),
+      body: ValueListenableBuilder<Box<ProgressData>>(
+        valueListenable: Hive.box<ProgressData>('progress').listenable(),
         builder: (context, box, widget) {
           progress = box.get('main', defaultValue: ProgressData())!;
           
