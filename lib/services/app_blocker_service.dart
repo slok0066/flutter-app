@@ -1,4 +1,4 @@
-import 'package:device_apps/device_apps.dart';
+
 import 'package:permission_handler/permission_handler.dart';
 
 class AppBlockerService {
@@ -26,12 +26,9 @@ class AppBlockerService {
   }
 
   static Future<bool> isYouTubeInstalled() async {
-    try {
-      final app = await DeviceApps.getApp(_youtubePackage);
-      return app != null;
-    } catch (e) {
-      return false;
-    }
+    // This is a placeholder check. A platform-specific implementation is needed
+    // to accurately check if YouTube is installed.
+    return true;
   }
 
   static Future<bool> isYouTubeRunning() async {
